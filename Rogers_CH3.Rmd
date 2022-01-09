@@ -1,0 +1,163 @@
+---
+title: "Rogers_CH3"
+author: "Alex Rogers"
+date: "1/9/2022"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+```
+
+
+
+1. What is a variable?
+
+- A variable is something which a researcher is interested in which varies across units of analysis. A variable could be an attribute like hair color, or a count of something like number of members in an organization or dollars earned per month. It could be something more abstract as well like a person's happiness.
+
+2. For each of the following variables, what types of variables are they (continuous, count, ordinal, categorical, qualitative)?
+
+a. Age - I think this depends on how you're measuring age. It could be measured as exact time since birth (say 7.35 years) which would be continuous. It could also be measured by something like "number of birthdays" (e.g., five years old) which would be a count variable.
+
+b. Gender - **Categorical**
+
+c. The number of times that the president tweeted in the past day - **Count**
+
+d. Income - **Continuous**
+
+e. Number of Instagram posts about statistics in the past month - **Count**
+
+f. The number of unemployment claims filed in the US last week - **Count**
+
+g. The university or college that a student attends - **Categorical**
+
+h. A therapist's written assessment of a patient's symptoms of depression - **Qualitative**
+
+i. Whether a soccer team is in its league's A division (highest), B division (next highest), or C division (lowest) - **Ordinal**
+
+3. Which of the following provides a description of the probability that each possible value of a variable will occur?
+
+a. Variation - I mean the variation provides some information about how likely certain values are, I don't know if I'd say it provides a description of the probability. I guess I'd say yes.
+
+b. Distribution - **Yes**
+
+c. Range - **No**, this describes the difference between the highest and lowest observed values, but not the probability of these or any other values being observed.
+
+d. Mean - **No**, I don't think so. The mean alone doesn't give this information, though perhaps paired with some other information like number of observations it might help.
+
+4.	Below is a frequency table depicting the salaries of Economics professors employed at a university. The column named Salary contains the salary, and the column named Frequency contains the number of professors who earn the stated salary.
+
+
+```{r}
+
+salaries <- c(85000, 85000, 85000, 85000, 85000, 90000, 90000, 90000, 90000, 100000, 120000, 120000, 125000, 125000, 125000, 130000, 130000)
+
+
+```
+
+a. Calculate the average salary earned by the professors
+
+```{r}
+
+mean(salaries)
+
+
+```
+b. Calculate the median
+
+```{r}
+
+median(salaries)
+
+
+```
+
+c. Calculate the minimum and maximum
+
+```{r}
+
+min(salaries)
+max(salaries)
+
+```
+d. Calculate the interquartile range
+
+```{r}
+
+IQR(salaries)
+
+
+```
+
+5. Which of the following commonly represents the *truth* we are trying to estimate in statistics?
+
+c. Greek letters like $\mu$ and $\beta$
+
+6. Which of the following reduces the impact of extreme values if the distribution of a variable is skewed? 
+
+a. Log transforming the variable
+
+7. Order the following distributions from the one with the lowest to the one with the highest variability:
+
+- d, a, c, b
+
+8. The following graph represents the final exam scores for 1000 students who took an introduction to statistics course at a university
+
+a. Describe the distribution - The distribution is centered around about 78 and looks a bit like a normal distribution. There is some right-skewedness
+
+b. Is there skewness to the data? - yes, slight right skew
+
+c. Would the mean or the median be a better measure to describe the center of the distribution? - Both would be okay. Median would be better due to the slight skew.
+
+d. What measure would you use to describe the variability of the distribution? - standard deviation
+
+9. Which of the following is correct regarding a *left-skewed distribution*?
+
+b. The mean is less than the median (asuming the x axis is least to greatest)
+
+10. The table below shows data on how many students in a university are Freshman, Sophomore, Junior and Senior.
+
+a. For an individual student, what kind of variable is their student standing? - Categorical
+
+b.	For the university itself, what kind of variable is the number of students with a given student standing? - count
+
+c. What kind of graph would best visualize the distribution for the university? Create the graph either by hand or with software.
+
+
+Maybe a boring bar graph
+
+![](/Users/alexr/Downloads/IMG_1489.jpg)
+
+
+11. Collect any continuous data from your classmates, family members, and/or friends. For example, you can collect data about their age or height.
+
+The data is age: 24, 26, 29, 29, 30
+
+```{r}
+age <- c(24, 26, 29, 29, 30)
+
+
+
+```
+
+
+a. What is the distribution of the data? Describe the shape of the distribution. Summarize the data using measures like mean, median, range, and standard deviation.
+
+- The data is relatively normally distributed though the sample size is quite small.
+
+```{r}
+
+mean(age)
+median(age)
+range(age)
+sd(age)
+
+
+```
+
+b. What theoretical distribution may have generated the data that you sampled? - **A normal distribution**
+
+c. Does your data give you a good idea abouw that the underlying theoretical distribution might be? Explain your reasoning.
+
+- No. The dataset is too small. I'm making this guess based on the fact that I would guess that age of my friends follows a normal distribution

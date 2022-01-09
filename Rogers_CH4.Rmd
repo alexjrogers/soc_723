@@ -1,0 +1,127 @@
+---
+title: "Rogers_CH4"
+author: "Alex Rogers"
+date: "1/9/2022"
+output: html_document
+---
+
+1. What is a conditional distribution? - A conditional distribution is the distribution of a variable, given the value on some other variable (e.g, the height of a person given that they are 30 years old)
+
+2. The following figure (using fictional data) describes the relationship between income level and rating on a scale testing for signs of depression.
+
+a. How does the conditional mean of Depression change as income increases? - As income increases, the conditional mean of Depression decreases.
+
+b. Does the graph indicate that lower income causes depression? Why or why not? - The graph indicates that higher income is correlated with lower depression scores, but not necessarily a causal relationship.
+
+3. The below fictional table depicts data collected from 3000 university students on their classification (Freshman, Sophomore, Junior, Senior) and whether or not they receieve financial aid. The table shows a cross tabulation of classification and receipt of financial aid.
+
+a. Calculate the probability of receiving financial aid given that a student is a Senior. - 
+
+```{r}
+
+
+288 + 338
+
+288/626
+
+```
+
+b. Calculate the probability that a student is a Senior given that they receive financial aid - 
+
+```{r}
+
+508 + 349 + 425 + 288
+
+288 / 1570
+
+```
+c. Calculate the probability of receiving financial aid given that a student is a Freshman - 
+
+```{r}
+
+508+371
+
+508/879
+
+
+```
+
+4. Describe two advantages and one disadvantage of using line-fitting methods as opposed to calculating local means
+
+Advantages : Line fitting can help us understand correlations when there are gaps in the data. Line fitting sets us up to understand residuals and control for variables.
+
+Disadvantage : You have to have an idea of what type of line will match your distribution in order for line fitting to be useful and effective.
+
+5. Consider the line of best fit $Y = 4 - 3.5x$
+
+a. What is the conditional predicted mean of $Y$ when $X = 6$? - 
+
+```{r}
+
+4 - (3.5*6)
+
+
+```
+
+b. What is the conditional predicted mean of $Y$ when $X = -2$? - 
+
+```{r}
+
+4 - (3.5*(-2))
+
+
+```
+
+6. Which of the following terms describes a measurement of how much two variables vary with each other?
+
+c. Covariance
+
+7. What is the difference between covariance and correlation? 
+- Covariance is how much two variables vary with each other, correlation tells us the strength of a relationship between two variables
+
+8. Figure A and Figure B below depict the (fictional-data) relationship between scores on a math exam and an intelligence measure from data collected from a fictional sample of 100 students.
+
+a. What type of shape is fitted in Figure A? - a line
+
+b. What type of shape is fitted in Figure B? - an inverted parabola
+
+c. Which shape is a better fit for the data, how can you tell? Figure B (Inverted parabola) is a better fit, because the plotted shape more closely tracks with the observed data points.
+
+d. For Figure A, describe the residuals for different ranges of math exam scores. Are the observed data below or above the line/curve? Are the residuals evenly scattered around the line/curve?
+
+- The residuals are scatted above the line on the outskirts, and below the line near the center. The residuals are mostly condensed at the center of the line, below it.
+
+9. The below table contains fictional data on 5 employees from a company, reporting on how well they get along with their coworkers (GetAlong) and their level of job satisfaction (Satisfaction). The Prediction variable is the predicted satisfaction level, or the conditional mean of satisfaction, for each value of GetAlong derived after fitting a line of best fit using OLS estimation.
+
+a. Fill the residual column - 
+
+```{r}
+
+5.07 - 4.72
+4.05 - 4.28
+5.33 - 5.38
+4.02 - 4.22
+3.59 - 3.45
+
+
+```
+
+b. Describe how OLS uses residuals when fitting a line - OLS attempts to fit a line with the sum of the squared residuals as small as possible (which means the predictions are as close as possible to the observations)
+
+10. We'll be thinking here about the process of controlling for a variable. Consider the example: What is the relationship between first-generation status and graduation rate in a population of college students?
+
+a. Give an example of a variable that might explain why first-generation status and graduation rate are correlated other than one causing the other - First generation students might tend to have lower household income than students with parents with degrees, and household income might be correlated with graduation rate.
+
+b. Describe in five steps how you would subtract out the part of the first-generation/graduation-rate relationship that is explained by the variable you listed in part a.
+
+- 1  Get the mean of Graduation rate conditional on first-generation status
+
+- 2  subtract out that conditional mean to get the residual of first-generation status
+
+- 3  Get the mean of graduation rate conditional on household income
+
+- 4 subtract out that conditional mean to get the residual of household income
+
+- 5 Describe the relationship between residual of household income and residual of first-generation status
+
+c. How would you interpret the first-generation/graduation rate relationship you get after performing the steps in part b? - If there is still a relationship between first-generation status and graduation rate, then we're more confident that first-gen status directly effects graduation rate.
