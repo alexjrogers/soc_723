@@ -1,0 +1,101 @@
+---
+title: "Rogers_CH5"
+author: "Alex Rogers"
+date: "1/20/2022"
+output: html_document
+---
+
+1.	Think about the last time you sat down in a chair (perhaps right now). When you did that, you probably predicted you would observe that you would end up sitting in the chair, rather than passing through it or the chair breaking. List three assumptions you made about the data generating process when you made that prediction.
+
+- I assumed that the chair was made of something solid. I assumed that I cannot pass through solid things. I assumed that the chair could support my weight.
+
+
+2.	Which of the following is the best definition of the term identified as in “this variation has identified the effect we’re interested in”?
+
+- It's close between C and D, I'd ultimately choose C. We want the variation we look at to be related to testing our hypothesis. D is less appropriate because we can't say there is no reason for a relationship besides the effect we're interested in (we can't control for everything), but we want to know that we've controlled for as much as we can.
+
+3.	Go to your favorite news source and find an article that describes the results of a new empirical study. Describe what you think are some features of the data generating process. What are some ways to explain their result other than the interpretation they had? Did the study (as described in the article) have ways of blocking out the alternate explanation you thought of?
+
+(Not my favorite news source but an interesting article) https://www.cuimc.columbia.edu/news/babies-born-during-pandemics-first-year-score-slightly-lower-developmental-screening-test
+
+Basically this article is reporting that a study out of Columbia University found that babies born in the first year of the pandemic scored lower on developmental tests at six months old.
+
+Data generation process: It is expected that babies whose mothers have viral infections during pregnancy have higher risk of neurodevelopmental developments (previous research)
+
+More mothers will have had viral infections during pregnancy (COVID)
+
+Ways to explain the results other than the interpretation they had: They think that the stress of a global pandemic on mothers effected babies in utero. They found that the developmental delay was consistent whether or not the mother had COVID, so they said it was the stress and not the virus itself.
+
+An alternate explanation might be that mothers expereinced more economic precarity during COVID, and could access resources which help with development like preschool less frequently.
+
+It is also possible that decreased socialziation with other children because of social distancing and COVID led to developmental delays.
+
+
+Did the study have ways of blocking out these other effects?: Not as reported by the article, though they did mention "Other factors, including fewer play dates and altered interactions with stressed caregivers, may help explain why babies born during the pandemic have weaker social and motor skills than babies born before the pandemic"
+
+It's unclear if they actually to steps to control for those factors.
+
+4.	You read about a new study with the headline “eating caviar linked to longer lifespan.” The study’s research question is “does eating caviar make you live longer?” In the study’s data, they find that people who eat caviar have, on average, longer lifespans than people who don’t. 
+
+a.	What are some alternate explanations for this relationship? 
+
+- People with more money tend to eat more caviar. People with more money also tend to have access to better healthcare.
+
+- Maybe caviar is good for you, and people who eat caviar are more conscious of their health, causing them to live longer. (I don't know that this is true)
+
+b.	What sort of variation would identify the answer to the research question?
+
+- The researchers need to measure within-group variation. So then they need to "control" or "account" for the fact that wealth is probably a factor here. So look at lifespan of rich people who do and don't eat caviar
+
+c.	Give one suggestion for how the study authors might isolate variation that would identify the answer to the research question
+
+- Stratifying by income or wealth could help to isolate the variation the authors are interested in.
+
+
+5.	For each of the following news headlines, assume that the underlying data actually only shows a correlation between the two variables mentioned. Give an alternate explanation for the correlation other than the causal relationship implied by the headline. 
+
+a.	“As stock market drops, presidential approval ratings decline.”
+
+- Maybe a country is engaged in a war, that could cause stock markets to decline and presidential ratings to decline independent of each other
+
+b.	“Dates are announced for the downtown summer concert series, driving up sales at downtown restaurants.” 
+
+- Downtown restaurant tend to be more busy during the summer, independent of concerts.
+
+c.	“Unsanitary? Hospital visits linked to 20% increased risk of disease.” 
+
+- People who visit hospitals might already be at increased risk of disease (they are already sick, have compromised immune systems, etc.)
+
+d.	“Dress for success! Every CEO follows this office-wear rule.”
+
+- Dressing a certain way doesn't cause a person to become a CEO. A CEO has more money and has access to the resources necessary to purchase certain CEO-like clothing
+
+6.	Why is a variable that causes both the “treatment” and “outcome” variables especially concerning for identification? You may want to use the phrase “alternate explanation” in your answer.
+
+- A variable that causes both the "treatment" and "outcome" variables is concerning because the effect of the treatment on the outcome could be explained by a preceding variable, thus creating a spurious relationship.
+
+7.	Shoe company Crikey claims that people who wear their fancy and expensive professional running-shoe Cool Mistrunner brand run 4 to 5% faster than if they wore an average shoe. 
+
+a.	In a few sentences, describe the data-generating process (you will probably leave some things out, that’s okay). 
+
+People who wear fancy running shoes are likely interested in running faster. People who try new shoes are likely motivated to run faster. People who have money for fancy shoes can afford training and gym memberships.
+
+
+
+b.	What are possible alternative explanations for this claim, aside from the shoe making the person run faster?
+
+- As mentioned, access to resources to train the body in other ways (as well as time as a resource to train)
+- Maybe people who had favorable experiences are more likely to report thsoe changes
+- maybe a placebo effect where fancy shoes cause people to more strongly believe in their ability to run faster, leading to them running faster
+
+c.	In running their study, the researchers accounted for some alternative explanations, including: gender, enthusiasm for running, and whether runners have participated in marathons and/or half marathons. Think of an alternative explanation not on this list. What is the implication of not accounting for this alternative explanation?
+
+- I think resources is still the most obvious culprit here. People who can afford fancier shoes might have more time available to train, might have more money to afford personal training, might have less stress and better health overall.
+
+8.	Which of the following terms describe how a variable changes from observation to observation?
+
+
+b.	Variation 
+
+
+
