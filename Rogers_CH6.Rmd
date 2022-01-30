@@ -1,0 +1,113 @@
+---
+title: "Rogers_CH6"
+author: "Alex Rogers"
+date: "1/30/2022"
+output: html_document
+---
+
+1.	In a conversation with your friend, you mention a study you read that found that being tall causally makes you more likely to earn above $100,000 per year. Your friend says the study must be wrong, since they know several tall people who make much less than that, and several short people who do earn that much. Does your friend’s reasoning make sense or not, and why?
+
+- Honestly neither of our reasonings make sense. Height is likely not causal to inreased earnings. What might be happening here is that men tend to be taller than women, and men tend to make more than women, thus the causal association would be gender effecting income. As for the friend, outliers are going to exist all the time. Probability can tell us about likely outcomes, but doesn't account for every possible scenario. There will always be outliers.
+
+2. Consider the below diagram, which reproduces Figure 6.3:
+
+In this diagram... 
+a.	Which variables have a direct effect on Money?
+
+- CoinFlip and TerryInRoom
+
+b.	Which variables have an indirect effect on Money? 
+
+- Terry'sMood
+
+3.	You are interested in the question “Does reading Harry Potter as a child make you read more as an adult?” and draw the diagram below. 
+
+
+a.	What direct effects should be included when trying to answer your research question of interest?
+
+(This question is worded strangely, I'm not sure if I'm supposed to name the direct and indirect relationships shown, or come up with my own. I could do either, I'm going to try coming up with some of my own)
+
+- The direct effect of parental attitudes on HarryPotterAsKid (e.g.; my parents are religious and thought HP was the devil's work, seriously.)
+
+- The direct effect of PotterReleasedInMyLanguage on HarryPotterAsKid
+
+
+b.	What indirect effects should be included when trying to answer your research question of interest?
+
+- The indirect effect of PlayedSports on HarryPotterAsKid through ReadAsKid
+
+
+c.	What is a likely alternative explanation of why we might see a relationship between reading Harry Potter and reading more as an adult?
+
+- I think the distinction is the causality of Harry Potter specifically. I think we're looking at correlation, not causation. Harry Potter was an insanely popular series at its time. Most children who liked reading read it. Kids who like to read become adults who like to read. The real relationship is that LikesReading directly effects HarryPotterAsKid and ReadingAsAdult
+
+4.	The figure in Question 3 has LikesReading included as an unobserved variable. In a few sentences each, explain:
+
+a.	Why do we bother to include variables on our diagrams if we can’t observe them? 
+
+- Because we make our observations as logical human beings who can make rational observations about the world. If we're being honest with ourselves, we know that liking reading as a child will lead likely to liking reading as an adult. If we're not accounting for that in our assessment of reading HP causing adult reading, we're not accurately measuring the relationship between HarryPotterAsKid and ReadingAsAdult
+
+b.	Why might we think that LikesReading is an unobserved or latent variable?
+
+- I've already spoken about this, but basically it's a latent variable because it has an effect on the variables we're interested in, and it is likely the causal mechanism on both variables as opposed to HarryPotterAsKid causing ReadingAsAdult
+
+5.	Consider the research question “do government fire-safety advertisements reduce forest fires?”. 
+
+a.	Draw a causal diagram with these features: (a) ForestFires is caused by FireSafetyAds and ParkRangers (who can help catch fires early and put them out). (b) Both FireSafetyAds and ParkRangers are caused by GovtBudget (the government has to pay for this stuff!). (c) GovtBudget is caused by TimeSinceLastFire— a recent fire might get more money sent to the parks department. 
+
+![](/Users/alexr/Desktop/Capture.PNG)
+
+b. There is probably a direct effect (arrow) of TimeSinceLastFire on FireSafetyAds independent of GovtBudget. Also, TouristSeason probably has a direct effect on TimeSinceLastFire
+
+6.	Think of a research question in your field/major.
+
+What causes white liberals to put virtue signaling signs like the "In this house we believe" signs in their yards?
+
+
+a.	Sketch out the possible data generating process. 
+
+- Nationalized racist events lead to protest and news coverage
+- White liberals are forced to reckon with racism through highly publicized racist events
+- White liberals want to signal that they are not racist
+
+b.	What is the cause of interest? The outcome? 
+
+- The cause of interest is mainly the racist event (extrajudicial killing, etc) which has the indirect effect of putting the sign up. The outcome is putting up the sign
+
+c.	What other variables are in play? 
+
+- Disbelief in racism
+- National conversations about race
+- White guilt
+
+d.	Draw a causal diagram depicting the relationships between all of the variables? 
+
+![](/Users/alexr/Downloads/diag.PNG)
+
+e.	Can there be any unobserved or latent variables? Include them in the diagram.
+
+Political views would effect whether national conversations lead to guilt or denial. Likely for liberals these conversations lead to guilt and ultimately virtue signaling, while for conservatives this leads to denial which leads to defensiveness (claims of reverse discrimination) 
+
+7.	Consider this research question: Does the inclusion of “free shipping” cause people to buy items from an online store more?
+
+a.	List six variables that should be included in a causal diagram. 
+
+- PriceOfGoods
+- TargetDemographic
+- DemandForProduct
+- CompetitorPrice
+- CompetitorShipping
+
+b.	Is it feasible to collect data on all the variables that you listed in part a? Can the variables be measured easily? 
+
+- It's probably feasible to collect data on all of those variables, not interesting, but feasible. 
+
+8.	Define causality. In a few sentences, why is causality interesting and important?
+
+- Causality is when one thing causes another. An interesting way to define that came (I think) from this chapter, causality can be determined when changing X causes a change in Y. Simple but effective. Causality is interesting from a social science perspective if one is interested in knowing why things happen (why do people hold beliefs they do, why do societies structure in particular ways etc)
+
+9.	Which of the following describes a representation of a data generating process (DGP) including variables in that DGP and the causal relationships between them? 
+
+- D, causal diagram
+
+
