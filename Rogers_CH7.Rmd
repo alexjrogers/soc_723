@@ -1,0 +1,116 @@
+---
+title: "Rogers_CH7"
+author: "Alex Rogers"
+date: "1/30/2022"
+output: html_document
+---
+
+
+1.	You are making a simplified causal diagram to represent the data generating process of viewership for a TV show. Which of the following is true?
+
+- a.	The diagram should include a variable for “number of celebrities in the cast”
+
+2.	Draw a causal diagram for the research question “do long shift hours make doctors give lower-quality care?” that incorporates the following features (and only the following features):
+
+a.	Long shift hours affect both how tired doctors are, and how much experience they have, both of which affect the quality of care
+b.	How long shifts are is often decided by the hospital the doctor works at. There are plenty of other things about a given hospital that also affect the quality of care, like its funding level, how crowded it is, and so on
+c.	New policies that reduce shift times may be implemented at the same time (with the timing determined by some unobservable change in policy preferences) as other policies that also attempt to improve the quality of care
+
+
+I feel like this guy is bad at writing homework questions. Does he want me to include all the variables explicitly in the diagram or simplify it as described in the chapter (e.g., collapse all the variables in part b into one variable, hospital)? I'm going to take the simplifying approach because I think it makes for a better diagram, though obviously I could just list every variable he wrote down
+
+Not including the signs makes this whole thing a bit confusing. I like the way we learned it in Methods better. Is there a benefit to this approach?
+
+![](/Users/alexr/Desktop/Untitled.png)
+
+
+3.	Consider this research question: Does the funding level of public schools affect student achievement for students in your country? 
+
+a.	What is the treatment and what is the outcome of interest? 
+
+- treatment, FundingLevel
+- outcome, StudentAchievement
+
+b.	Write down a list of relevant variables. 
+
+- StudentSES
+- AfterSchoolPrograms
+- FundingUse
+- ClassSize
+
+
+c.	Which of the variables in your list in part b are causes of both treatment and outcome? 
+
+- Maybe ClassSize (I'm imagining a program increasing funding for larger classes)
+- StudentSES, maybe higher median SES schools get more funding, and higher SES students have better achievement
+
+d.	Why might we want to pay extra attention to the variables listed in part c?
+
+They could be latent variables
+
+e.	Draw a causal diagram of the variables listed in part b.
+
+I'm including some more variables.
+
+![](/Users/alexr/Desktop/messy.png)
+
+f.	Simplify the diagram from part e.
+
+![](/Users/alexr/Desktop/parents.png)
+Rich parents send their kids to schools with more funding. 
+Rich parents causes higher achievement.
+Higher funding causes higher achievement.
+
+4.	Describe the kinds of situations that each of the following could be applied to in order to simplify a causal diagram. 
+
+a.	Unimportance 
+
+- An effect is possible, but either unlikely or has a very small effect. (e.g.; excluding rainfall per year from the funding/achievement. Yes rainy days probably lead to poorer achievement but not by much)
+
+b.	Redundancy 
+
+- When multiple variables are having the same effect, they might be able to be combined. (The author gives the example of combining race, SES, gender into "demographics", which seems dubious to me, but I get the point)
+
+c.	Mediators 
+
+When a variable is only on a graph to show that it creates a path for another (e.g.; racism causes racial prejudice causes hate crime). I'm not convinced that this is necessarily a good thing to do. Mediators can be important to think about when thinking about causality. I want to talk more about this in class?
+
+d.	Irrelevance
+
+Some variables are important in the DGP but don't have to do with our treatment and outcome variables. I think of this as the "what about" questions. What about race. What about gender. This is about focusing effort on treatment and effect.
+
+5.	How can a causal diagram be modified so as to avoid cyclic relationships?
+
+- Be sure you understand the DGP and account for time properly (like in the punching example). Introducing or focusing on randomness.
+
+6.	Think of a research question in your field of interest. 
+
+
+Does having a pet dog lead to happiness?
+
+a.	What is the cause variable and what is the outcome variable? 
+
+- Cause, having a dog
+- outcome, happiness
+
+b.	Write down a list of between 5 and 10 relevant variables in the data generating process. 
+
+SES
+MentalHealth
+JobSatisfaction
+AgeOfPet
+HealthofPet
+
+c.	Draw a causal diagram incorporating all the variables from part b.
+
+![](/Users/alexr/Desktop/doggo.png)
+
+d.	Stop working on this problem for fifteen minutes and do something else. Then come back, look at your causal diagram from part c again, and describe one bad assumption you think it made, or something it left out.
+
+This thing is honestly a mess. I think the main thing though is I called the variable "happiness" but really the outcome I was interested in was "mental health".
+
+7.	Consider the diagram below. It depicts a cyclical relationship between student achievement and motivation. If students achieve more (i.e., score well on exams), then their motivation goes up, and if their motivation goes up, they achieve more. Change the diagram so that the relationship is not cyclic anymore.
+
+![](/Users/alexr/Desktop/teacher.png)
+
+Basically the idea is that yes motivation causes achievement which causes motivation, but there is a reset every year as a new teacher is introduced to a student which either increases or decreases their motivaiton
