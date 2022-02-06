@@ -1,0 +1,82 @@
+---
+title: "Rogers_CH9"
+author: "Alex Rogers"
+date: "2/6/2022"
+output: html_document
+---
+
+1.	Which of the following describes when randomization of treatment occurs without a researcher controlling the randomization? 
+
+- Natural experiment
+
+2.	Necessary conditions:
+
+a.	What needs to be true about the variation we need to isolate when we’re trying to isolate front door paths?
+
+- When isolating front door paths we are trying to isolate the effect of the treatment on the outcome, so we want to make sure there are no back door paths from the treatment to the outcome
+
+b.	How do we know that the variation we get from a randomized controlled experiment fulfills the condition(s) from part a?
+
+- Because the researcher is in control of the experiment. Through careful research design and sampling, the researcher knows that the only variation in the research is coming from the treatment.
+
+3.	Describe the four major differences between randomized experiments and natural experiments discussed in the chapter. As a bonus, there’s a fifth difference described in the chapter having to do with sample size and representativeness.
+
+- (1) Natural experiemnts sometimes do have backdoors from the random event to the outcome. That is okay, because the random event still might make it easier to identify the effect of the treatment than some other method.
+
+- (2) People often don't know they're in a natural experiment. They don't opt-in which allows more variation among participants. Samples also tend to be larger.
+
+- (3) We can only assess the effect on people who are sensitive to the treatment. 
+
+- (4) It can be challenging to convince others that the variation is exogenous to the data generating process.
+
+- (5) Sample sizes are smaller in randomized controlled trials, but are more squarely generalizable to the population the researcher is interested in. Natural experiements have to take what they can get as it relates to generalizability. 
+
+4.	Provide an example of a of research question that is causal in nature but cannot be feasibly answered by a randomized experiment. Explain your reasoning.
+
+- Does bullying decrease mental health?
+
+- Clearly we can see how there might be a causal relationship between bullying and mental health, but it would be unethical to assign some children to be bullied and others to not be bullied. For a natural experiment, I could imagine some experiment where Donald Trump says that bullying makes children tougher, and that parents should encourage their children to bully. Maybe then you could compare mental health of children in republican and democrat areas before and after the announcement to assess the effect of bullying on mental health.
+
+5.	Define the concept of exogenous variation.
+
+- Exogeneous variation is a source of variation in the treatment variable which has no open back doors to the outcome variable. Ideally the exogeneous variation is only connected to the treatment variable.
+
+6.	Provide an example of a natural experiment. It could be an idea of your own, from the book, or from a study you read. 
+
+- I'm using the example I thought of earlier: "For a natural experiment, I could imagine some experiment where Donald Trump says that bullying makes children tougher, and that parents should encourage their children to bully. Maybe then you could compare mental health of children in republican and democrat areas before and after the announcement to assess the effect of bullying on mental health."
+
+- The variable TrumpAnnoucement here would actually be a binary republican/democrat variable, which is operationalizing something like "was Trump's message about bullying internalized"
+
+a.	Draw a causal diagram using 5-10 variables. 
+
+![](/Users/alexr/Downloads/IMG_1551.jpg)
+
+b.	List the paths from the source of exogenous variation to the outcome. 
+
+- trumpAnnouncement - bullying - mental health
+- trumpAnnouncement - bullying - parentSES - mentalHealth
+- trumpAnnouncement - bullying - parentSES - neighborhood - mentalHealth
+
+c.	Which paths need to be closed?
+
+- Perhaps this is a trick question, but since we can use trumpAnnoucement as a natural experiment, and compare mental health of children in republican and democrat areas before and after, do we need to close any paths? I think no.
+
+d.	Is it believable in this context that you haven’t missed any paths and that you can close all the paths you need? Why or why not?
+
+- No way. There are so many things that could cause children to bully and could cause mental health, that's why a natural experiment is helpful here!
+
+7.	Which of the following best explains how “using exogenous variation to predict treatment, and then using the prediction instead of the treatment itself” lets you isolate just the front door from treatment to outcome?
+
+- b Because the exogenous variation has no back doors, so nothing it predicts can have back doors either.
+
+- This question is a little murky to me because some other answers seem viable, but I'm going with this one because it basically just offers the definition of exogeneous variation
+
+8.	Consider the following natural experiment design: in 2019, United States president Donald Trump increased tariffs on Chinese imports considerably. This made United States consumers want to switch to non-Chinese sources of imports. If you are an exporter to the US, like Brazil, then demand for your products just went up if China is a competitor of yours. So Brazilian manufacturers of machinery saw their exports increase by a lot, but Brazilian pop musicians didn’t. You want to know whether exporting to a country makes you like it more. You plan to isolate the variation in Brazilian exports driven by the tariffs to see if industries with more exports have a higher opinion of the United States.
+
+a.	What potential back doors might remain between the tariffs and the opinion of the United States?
+
+- tariffs <- GDP -> opinionUS
+
+b.	If someone told you that they performed this study as described, and found that increased exports had no effect on opinion of the US, would you believe the result? Why or why not? 
+
+- In order to believe the study as described, we'd have to buy into the fact that the only thing which causes differential levels of liking the US between manufacturers of machinery and Brazilian pop musicians is how much they are exporting to the US. That is to say there are still open backdoor paths. I don't think I would buy it.
