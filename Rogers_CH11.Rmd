@@ -1,0 +1,60 @@
+---
+title: "Rogers_CH11"
+author: "Alex Rogers"
+date: "2/13/2022"
+output: html_document
+---
+
+1.	Suppose that you are analyzing the effect of universities and colleges opening during a pandemic on increase in the number of positive cases. Name one strategy that you can use to avoid having to collect data on all types of campus characteristic variables that are constant over time that you may have to control for in your analysis.
+
+- If we assess the effect of universities opening on the rate of positive cases **over time** we would effectively just be looking at the treatment effect.
+
+2.	Intuitively, why would a method that isolates front doors allow you to ignore back doors related to unmeasured variables?
+
+- Because by isolating front doors (focusing on the variation caused by some exogenous source which is related to the treatment and not the outcome), the only variation that is effecting both the treatment and the outcome is the exogenous variation (assuming we've thougt hard enough about whether the exogenous variation actually only effects the treatment and isn't related to "stuff" or the outcome)
+
+3.	On robustness tests: 
+
+a.	What are robustness tests? 
+
+- Robustness tests are ways to check your assumptions. 
+
+b.	What is the purpose of conducting a robustness test? 
+
+- Robustness checks are important because they check if an assumption you've made is likely false. If you don't expect there to be a difference in treatment outcome based on some variable (say age), then you perform a robustness check and you find out the treatment does have differential outcomes based on age, you've made a bad assumption.
+
+c.	What are placebo tests?
+
+- A placebo test is when we "pretend" a treatment is being applied when it isn't, then check for a result. If we see the "effect" of the placebo in the results, something is wrong! (probably an assumption we've made) 
+
+4.	Suppose you want to study the effect of attending tutoring sessions on grade point averages (GPA). List at least five variables that impact both attendance of tutoring sessions and students’ GPA. Is it feasible to measure and control for all of the variables?
+
+- Variables: DesireToLearn, SES, FreeTime, ParentEducation, FullTimeWork
+
+- Is it feasible to measure and control all of these?: Maybe, probably not. DesireToLearn seems a particularly tricky thing to measure. I think the point of this question though is to highlight that even though we've identified five variables here, there are probably innumerable variables which would effect both GPA and AttendsTutoring. Some other method of isolating the effect of AttendsTutoring on GPA would be helpful.
+
+5.	Describe partial identification in your own words.
+
+- Partial identification is when we can't completely identify the effect of a treatment on an outcome, but we can make some good assumptions based on the information that we have. Based on data and intuition we might say, we know that the effect of X on Y is positive, we just don't know how strong it is. Or we might say the effect of X on Y is at least 3%, and not more than 7% (we have bounded the effect)
+
+6.	Pick any causal diagram from the book other than Figure 11.2.
+
+a.	Reproduce that diagram here. 
+
+![](/Users/alexr/Desktop/6.png)
+
+b.	Select two variables on the diagram without a direct link between them (i.e. no single arrow straight from one of them to the other).
+
+- CoinFlip and TerryInRoom
+
+c.	What variables would you need to control for that will eliminate any relationship between the two variables (you might not need any).
+
+- If we controlled for Money, this would open up a relationship between CoinFlip and TerryInRoom. There is no control for us to do to eliminate a relationship between them.
+
+d.	If you looked at the relationship between your two variables from part b, while controlling for the variables from part c, and you got a nonzero result, what would you conclude?
+
+- We controlled for a collider so we may be looking at a relationship that doesn't actually exist even though we got a nonzero result.
+
+7.	What does it mean to say that the effect of financial deregulation on the rate at which firms go bankrupt is “bounded from above” at 2 percentage points?
+
+- d, The effect is no larger than 2 percentage points.
