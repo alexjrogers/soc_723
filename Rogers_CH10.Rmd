@@ -1,0 +1,106 @@
+---
+title: "Rogers_CH10"
+author: "Alex Rogers"
+date: "2/10/2022"
+output: html_document
+---
+
+
+1.	Define in your own words (i.e., don’t just copy down what’s written in the glossary) each of the following terms: 
+
+a.	Conditional average treatment effect 
+
+- A conditional average treatment is the treatment effect on some group which has a variable value we are interested in. So as an example, if I wanted to know the effect of a job training program on middle-aged people, the conditional average treatment effect would be the average effect of the program conditional on being middle-aged.
+
+b.	Average treatment on the treated
+
+- This is the average effect of the treatment, on the treated. So we're looking at within-treated differences as opposed to comparing treated and non-treated.
+
+c.	Average treatment on the untreated
+
+- This is the opposite of above, so the average effect of the treatment on the untreated. So within-untreated differences as opposed to comparing treated and untreated. This is a prediction based on the effect of the treatment on the treated as opposed to some observable value (I think)
+
+2.	Provide an example of a treatment effect that you would expect to be highly heterogeneous, and explain why you think it is likely to be heterogeneous
+
+- Depending on the research design, question, and population, really any effect could by highly heterogeneous. Say we were interested in the effect of a diversity and equity training program on perceived levels of discrimination. That effect would be heterogeneous because of variations in age, race, political views, and more.
+
+3.	Consider the data in the table below that shows the hypothetical treatment effect of cognitive behavioral therapy on depression for six participants. For the sake of this example, the six participants represent the population of interest. 
+
+![](/Users/alexr/Desktop/3.PNG)
+
+
+a.	What is the overall average treatment effect for the population? 
+
+- 6
+
+b.	What is the average treatment effect for Women? 
+
+- 4.6
+
+c.	If nearly all Non-binary people get treated, and about half of all Women get treated, and we control for the differences between Women and Non-binary people, what kind of treatment effect average will we get, and what can we say about the numerical estimate we’ll get? 
+
+- A weighted average treatment effect.
+- The numerical estimate we get will give us information that relates to the effect of the treatment on women, since we have a larger population of both treated and non-treated women.
+
+d.	If we assume that, in the absence of treatment, everyone would have had the same outcome, and also only teenagers (19 or younger) ever receive treatment, and we compare treated people to control people, what kind of treatment effect average will we get, and what can we say about the numerical estimate we’ll get?
+
+
+- I saw the conversation on slack between Steph, Brenda, and Braulio, and I think Braulio's cases for ATE does make sense. It's just such a weird example, why would you want to assess the effect on the whole population by only treating teenagers? It makes no sense. I still think there might be a case for conditional average treatment effect.
+
+- As for numerical estimate, I don't think this gives us any information at all. My logic is, if we only treat teenagers, but all teenagers get treated, we don't get to see any variance. And because "in absence of treatment, everyone would have had the same outcome" but we don't know what that outcome is? We have nothing to compare to.
+
+4.	Give an example where the average treatment effect on the treated would be more useful to consider than the overall average treatment effect, and explain why
+
+- Maybe there's a government program which offers $2000 to low-income families. If you wanted to know the ATT, the effect of the program among the people who received the money, as opposed to the effect on the whole population. One reason why this would be important would be the type of people who self select into this program are unique, and comparing them to the whole population (i.e the whole of the income distribution) would make the program seem less effective.
+
+5.	Which of the following describes the average treatment effect of assigning treatment, whether or not treatment is actually received? 
+
+- c.	Intent-to-treat 
+
+6.	On weighted treatment effects: 
+
+a.	Describe what a variance-weighted treatment effect is
+
+- When numerical outcomes are weighted based on the level of variance in the result of the treatment (e.g.; those who the treatment has a higher or lower effect on are weighted more). Basically this is helpful because statistics is about measuring difference, and the more variance there is the more difference there is to measure.
+
+b.	Describe what a distribution-weighted treatment effect is 
+
+- When you have a population that has treated and untreated people that have similar characteristics (which can be achieved by closing back doors via your sampling procedures), you can weight individuals who share the common traits among the treated and untreated more heavily, creating a distribution-weighted treatment effect.
+
+c.	Under what conditions/research designs would we get each of these?
+
+- Variance-weighted treatment effects would be the result of applying the treatment, looking at the results, and then applying weights during analysis.
+
+- Distribution-weighted treatment effects are partially a result of how you draw your sample (closing back doors and generating homogeneity in the sample), then applying the weights in analysis.
+
+7.	Suppose you are conducting an experiment to see whether pricing cookies at 1.99 versus 2 affects the decision to purchase the cookies. The population of interest is all adults in the United States. You recruit people from your university to participate and randomize them to either see cookies priced as 1.99 or 2, then write down whether they purchased cookies. What kind of average treatment effect can you identify from this experiment?
+
+- Population: All adults in the US
+- Sample - Random sample of people at my university
+- Treatment effect - The effect of the treatment conditional on being a student at my university
+- This is a conditional average treatment effect.
+- We'd be better off saying our population is college students.
+
+8.	For each of the following identification strategies, what kind of treatment effect(s) is most likely to be identified? 
+
+a.	A randomized experiment using a representative sample 
+
+- Average treatment effect
+
+b.	True randomization within only a certain demographic group
+
+- Conditional average treatment effect
+
+c.	Closing back door paths connected to variation in treatment
+
+- Variation-weighted average treatment effect
+
+d.	Isolating the part of the variation in treatment variable that is driven by an exogenous variable 
+
+- Intent-to-treat
+
+
+e.	The control group is comparable to the treatment group, but treatment effects may be different across these groups
+
+- Heterogeneous treatment effect
+
