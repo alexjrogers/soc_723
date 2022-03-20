@@ -1,0 +1,252 @@
+---
+title: "Rogers_CH16"
+author: "Alex Rogers"
+date: "3/16/2022"
+output: html_document
+---
+
+## How Does It Work?
+
+
+#### 1. You observe the number of vacations taken by Zac and Skylar in 2012, 2013, and 2014. In those years, Zac took 3, 7, and 5 vacations, respectively. Skylar took 2, 6, and 10.
+
+
+##### a.	Isolate the numbers that represent the variation between Zac and Skylar in their vacation-taking. 
+
+**In order to get the between variation, we need the within-individual means:
+ZacMean = 5
+SkylarMean = 6
+We then assess the difference between these two means, so the variation between Zac and Skylar is 1 vacation.**
+
+##### b.	Isolate the variation within Zac and within Skylar in their vacation-taking. 
+
+**ZacMean = 5. Zac took 3, 7, and 5 vacations in the years observed. Zac's within variation for those years was -2, 2, and 0 respectively.**
+
+**SkylarMean = 6. Skylar took 2, 6, and 10 vacations in the years observed. Skylar's within variation for those years was -4, 0, and 4 respectively.**
+
+
+
+##### c.	(Difficult!) We perform a fixed effects analysis of the effect of vacations on happiness. A vacation increases Zac’s happiness by 1 “happiness point,” but it increases Skylar’s happiness by 2 “happiness points.” Will our fixed effects estimate likely give us an answer closer to 1, closer to 2, or exactly 1.5?
+
+**2 because fixed effects is sensitive to lots of variation within individuals**
+
+#### 2.	You are interested in the effect of cultural events on the levels of trust in a city. Perhaps big events like concerts bring people together and they can trust each other more. You plan to look at the relationship between trust and number of events in a given year, with fixed effects for city. Draw a causal diagram for this research question with at least four back door paths. Which paths will be closed by fixed effects, and which will remain open?
+
+![](/Users/alexr/Desktop/IMG_1622.jpg)
+
+**Fixed effects will close every backdoor path present. Each of these things (political messaging, city income, population size, population demographics) all are relevant to the specific city**
+
+#### 3.	Classify each of the following forms of variation as “between variation”, “within variation”, or a combination of both. 
+
+##### a.	(Individual = person) How a child’s height changes as they age. **within variation**
+##### b.	(Individual = person) In a data set tracking many people over many years, the variation in the number of children a person has in a given year. **within variation**
+##### c.	(Individual = city) Overall, Paris, France has more restaurants than Paris, Texas. **between variation**
+##### d.	(Individual = genre) The average pop music album sells more copies than the average jazz album **between variation**
+##### e.	(Individual = genre) Miles Davis’ Kind of Blue sold very well for a jazz album. **between (comparing one genre to another, like comparing one person to another**
+##### f.	(Individual = genre) Michael Jackson’s Thriller, a pop album, sold many more copies than Kind of Blue, a jazz album. **combination of both? this one is confusing, if the individual is genre, but we're comparing albums within genres, it seems like calling the album the individual makes more sense? But since we're looking at observations in observations I think this has some within element**
+
+#### 4.	Why does the process of taking each observation relative to its individual-level mean have the effect of “controlling for individual”?
+
+**The mean serves as a baseline for that given individual. When we assess each observation relative to the individual mean we can see the level of variation for a given individual**
+
+## How is it Performed?
+
+#### 1.	You are interested in the effect of cultural events on the levels of trust in a city. You run a regression of trust levels (on a 0-100 scale) on the number of cultural events with city fixed effects and get a coefficient on cultural events of 3.6. Assume that there are still some back doors open, so do not interpret the result causally. Interpret the 3.6, explaining it in an English sentence. 
+
+**In the specific city we're interested in, one additional cultural event is related to a 3.6 unit increase in the trust level of that city.**
+
+#### 2.	You are interested in the effect of cultural events on the levels of trust in a city. You run a regression of trust levels (on a 0-100 scale) on the number of cultural events with city and year fixed effects and get a coefficient on cultural events of 2.4. Assume that there are still some back doors open, so do not interpret the result causally. Interpret the 2.4, explaining it in an English sentence.
+
+**In the specific city we're interested in, in the specific year we're interested in, one additional cultural event is related to a 2.4 unit increase in the trust level in that city, in that year.**
+
+#### 3.	Two-way fixed effects with terms for both individual and time are often referred to as “controlling for individual and time effects”. Why might a researcher want to do this rather than just taking individual fixed effects and adding a linear/polynomial/etc. term for time?
+
+**Including time as a fixed effect allows us to isolate the effects of what might have been going on that year. Adding a linear/polynomial/etc term might allow our model to show that variation happens over time, but this doesn't allow us to account for that effect**
+
+#### 4.	Which of the following explains why random effects is likely to do a better job of estimating the individual-level effects than fixed effects, if its assumptions hold?
+
+a.	Because it makes the assumption that the individual effects are unrelated to the other predictors, which breaks that back door and thus reduces bias. *I think this is true but is related to fixed effects as well*
+
+b.	Because random effects allows some amount of between variation into the model, and some of the real individual effect is that between variation.
+
+**c.	Because it uses the information from the entire data set to estimate each individual effect, rather than relying on only a few observations per individual.**
+
+d.	It won’t. Enforcing Durbin-Wu-Hausman makes both methods produce the same estimates anyway. 
+
+## Coding
+
+```{r, warning=FALSE, message=FALSE}
+
+library(wooldridge)
+library(tidyverse)
+library(broom)
+library(car)
+library(fixest)
+library(modelsummary)
+library(lme4)
+
+```
+
+
+
+1. Load the `mathpnl.csv` data file provided (in R or Python store it as `mp`), which comes from Leslie Papke and consists of data at the school district level, and was featured in the Wooldridge (2010) textbook. 
+   
+   We are only going to be working with a few variables. Limit the data to these variables:
+   
+   - distid: the district identifier (our "individual" for fixed effects)
+   - year: the year the data is from
+   - math4: the percentage of 4th grade students who are "satisfactory" or better in math
+   - expp: expenditure per pupil
+   - lunch: the percentage of students eligible for free lunch
+
+
+```{r}
+
+mp <- mathpnl |> 
+  select(distid, year, math4, expp, lunch)
+
+
+```
+
+
+2.  Panel data is often described as "N by T". That is, the number of different individuals N and the number of time periods T. Write code that outputs what N and T are in this data.
+
+*Language-specific instructions*: 
+
+- This will entail counting the number of unique values of your individual and time identifiers. In R try `unique()` to get the unique values and `length()` to count how many there are.
+
+```{r}
+
+length(unique(mp$distid))
+length(unique(mp$year))
+
+
+```
+
+3.  A *balanced* panel is one in which each individual shows up in every single time period. You can check whether a data set is a balanced panel by seeing whether the number of unique time periods each individual ID shows up in is the same as the number of unique time periods, or whether the number of unique individual IDs in each time period is the same as the total number of unique individual IDs. 
+
+Think to yourself a second about why these procedures would check that this is a balanced panel. Then, check whether this data set is a balanced panel.
+(hint: there are many ways to do this, but the easiest is to limit the data to just individual ID and year, drop any duplicates (keeping only `unique()` values in R, and tabulating how many times each year appears (`table()` in R
+
+```{r}
+
+bal <- mp |> select(distid, year)
+
+glimpse(bal)  
+glimpse(unique(bal))
+
+```
+
+
+The `glimpse` and `unique` give the same number of observations so there are no duplicates to drop.
+
+4. Run an OLS regression, with no fixed effects, of `math4` on `expp` and `lunch`. Store the results as `m1`.
+
+```{r}
+m1 <- lm(math4 ~ expp + lunch, data = mp)
+tidy(m1)
+
+```
+
+5. Modify the model in step 4 to include fixed effects for `distid` "by hand". That is, subtract out the within-`distid` mean of `math4`, `expp`, and `lunch`, creating new variables `math4_demean`, `expp_demean`, and `lunch_demean`, and re-estimate the model using those variables, storing the result as `m2`. 
+(tip: be careful that your code doesn't overwrite the original variables, or at least if it does, reload the data afterwards)
+
+```{r}
+mp <- mp |> 
+ group_by(distid) |> 
+  mutate(math4_demean = math4 - mean(math4), expp_demean = expp - mean(expp), lunch_demean = lunch - mean(lunch))
+
+
+```
+
+
+If I've done this right then the adjusted values for each individual on each variable should sum to 0, which they do.
+
+```{r}
+
+m2 <- lm(math4 ~ expp_demean + lunch_demean, data = mp)
+tidy(m2)
+
+```
+
+6. Next we're going to estimate fixed effects by including `distid` as a set of dummies. This can be extremely slow, so for demonstration purposes use only the first 500 observations of your data (don't get rid of the other observations, though, you'll want them for the rest of this assignment).
+
+Run the model from step 4 but with dummies for different values of `distid`, saving the result as `m3`. Then, do a joint F test on the dummies (see Chapter 13), and report if you can reject that the dummies are jointly zero at the 99% level.
+Tip: `distid` is stored as a numeric variable, but you want it to be treated as a categorical variable. If your regression result only has one coefficient for `distid`  you've done it wrong.
+
+```{r}
+
+mpdum <- head(mp, 500)
+m3 <- lm(math4 ~ expp + lunch + factor(distid)-1, data = mpdum)
+tidy(m3)
+
+```
+
+```{r}
+
+char_id <- as.character(unique(mpdum$distid))
+
+linearHypothesis(m3,gsub(" ", "",paste("factor(distid)", char_id)))
+
+
+
+```
+
+**As far as rejecting that the dummies are 0, it looks like they are all zero, so we don't reject the hypothesis.**
+
+7. Now we will use a specially-designed function to estimate a model with fixed effects. (Using the whole data set once again), use `feols()` from the **fixest** package in R to estimate the model from step 4 but with fixed effects for `distid`. Save the result as `m4`. Include standard errors clustered at the `distid` level.
+
+```{r}
+
+m4 <- feols(math4 ~ expp + lunch | distid, data = mp)
+tidy(m4)
+
+```
+
+8. Now add fixed effects for year to your model from step 7 to create a two-way fixed effects model. Keep the standard errors clustered at the `distid` level. Save the results as `m5`.
+
+```{r}
+
+m5 <- feols(math4 ~ expp + lunch | distid + year, data = mp)
+tidy(m5)
+
+```
+9. Using `modelsummary()` from **modelsummary** in R make a regression table including `m1` through `m5` in the same table so you can compare them all. Read the documentation of your command to figure out how to include the `expp`, `lunch`, `expp_demean`, and `lunch_demean` predictors in the table without clogging the thing up with a bunch of dummy coefficients from `m3`.
+
+Write down two interesting things you notice from the table. Multiple possible answers here.
+
+```{r}
+
+models <- list(m1, m2, m3, m4, m5)
+modelsummary(models, coef_omit = "factor")
+
+```
+
+**Models 2 and 4 have the same coefficients for the mean adjusted variables and the non-mean adjusted variables. That is because they are both fixed-effects models.**
+
+**When adjusting for year and expenditure, the effect almost completely disappears.**
+
+10. Finally, we'll close it out by using correlated random effects instead of fixed effects (see 16.3.3). You already have `expp_demean` and `lunch_demean` from earlier. 
+
+Now, modify the code from that slightly to add on `expp_mean` and `lunch_mean` (the mean within `distid` instead of the value *minus* that mean). Then, regress `math4` on `expp_demean`, `lunch_demean`, `expp_mean`, and `lunch_mean`, with random effects for `distid` using `lmer()` from **lme4** in R 
+
+Show a summary of the regression results.
+*Language-specific instructions*: 
+- In R, `lmer()` has a hard time with numeric variables as categorical indicators. Create a new, factor version of `distid` directly in the data before running the model, and use that instead.
+
+```{r}
+mp <- mp |> 
+ group_by(distid) |> 
+  mutate(expp_mean = mean(expp), lunch_mean = mean(lunch), factordistid = factor(distid))
+
+
+```
+
+```{r}
+
+
+lmer(math4 ~ expp_demean + lunch_demean + expp_mean + lunch_mean | factordistid, data = mp)
+
+
+```
+
