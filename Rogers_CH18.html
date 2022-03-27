@@ -725,7 +725,7 @@ F
 </tr>
 </tfoot>
 </table>
-<p>SANDWICHES!</p>
+<p><strong>SANDWICHES!</strong></p>
 <pre class="r"><code>prsr3 &lt;- prsr2 |&gt; 
   filter(keyword !=&quot;sandwich&quot;)</code></pre>
 <pre class="r"><code>soupsandm1 &lt;- lm(hits ~ date + keyword + date*keyword,
@@ -874,9 +874,9 @@ F
 <pre class="r"><code># dropping soup and sandwiches for the rest of the assignment
 
 sr2 &lt;- sr |&gt; filter(keyword !=&quot;soup&quot; &amp; keyword !=&quot;sandwich&quot;)</code></pre>
-<ol start="5" style="list-style-type: decimal">
-<li>Create a <code>month</code> variable by shifting the <code>date</code> variable back 15 days (so that the treatment day is the first day of the month) and then taking the month of the resulting date. Also create an <code>After</code> variable equal to 1/0 (or True/False) if the date is March 15 or afterwards.</li>
-</ol>
+</div>
+<div id="create-a-month-variable-by-shifting-the-date-variable-back-15-days-so-that-the-treatment-day-is-the-first-day-of-the-month-and-then-taking-the-month-of-the-resulting-date.-also-create-an-after-variable-equal-to-10-or-truefalse-if-the-date-is-march-15-or-afterwards." class="section level5">
+<h5>5. Create a <code>month</code> variable by shifting the <code>date</code> variable back 15 days (so that the treatment day is the first day of the month) and then taking the month of the resulting date. Also create an <code>After</code> variable equal to 1/0 (or True/False) if the date is March 15 or afterwards.</h5>
 <p>Then, take a look at the values of <code>month</code> you get and how they line up with <code>date</code>, and subtract a number from <code>month</code> so that the last period just before treatment (Feb 16-Mar 14) is 0. (Also, change the Jan 1-14 month so it’s one less than the Jan 15-Feb 14 month)</p>
 <p>Then, use two-way fixed effects to estimate the difference-in-difference estimate of the effect of lockdown on sourdough popularity with <code>keyword</code> and <code>month</code> fixed effects, and standard errors clustered at the <code>keyword</code> level.</p>
 <p><em>Language-specific instructions</em>:</p>

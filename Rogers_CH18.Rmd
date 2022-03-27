@@ -245,7 +245,7 @@ msummary(nsoupm1, stars = TRUE)
 
 ```
 
-SANDWICHES!
+**SANDWICHES!**
 
 ```{r}
 
@@ -293,7 +293,7 @@ sr2 <- sr |> filter(keyword !="soup" & keyword !="sandwich")
 ```
 
 
-5. Create a `month` variable by shifting the `date` variable back 15 days (so that the treatment day is the first day of the month) and then taking the month of the resulting date. Also create an `After` variable equal to 1/0 (or True/False) if the date is March 15 or afterwards.
+##### 5. Create a `month` variable by shifting the `date` variable back 15 days (so that the treatment day is the first day of the month) and then taking the month of the resulting date. Also create an `After` variable equal to 1/0 (or True/False) if the date is March 15 or afterwards.
 
 Then, take a look at the values of `month` you get and how they line up with `date`, and subtract a number from `month` so that the last period just before treatment (Feb 16-Mar 14) is 0. (Also, change the Jan 1-14 month so it's one less than the Jan 15-Feb 14 month)
 
